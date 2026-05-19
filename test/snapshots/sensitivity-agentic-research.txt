@@ -1,0 +1,10 @@
+Pricebench sensitivity: Agentic research workspace
+Source: demo:agentic-research
+Baseline: revise, margin -13.2%, warnings 14
+
+Scenarios
+- cost x1 / usage x1: revise, margin -13.2%, warnings 14
+
+Risk Cases
+- cost x1 / usage x1: revise (9 high warnings)
+

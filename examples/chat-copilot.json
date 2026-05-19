@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Chat copilot workspace",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.72,
+    "freeMarketingBudgetPerAccount": 0.75,
+    "activationMoment": "First teammate shares a useful answer",
+    "pricingOwner": "self-serve lead",
+    "billingReadiness": "metered-events-ready"
+  },
+  "unitCosts": [
+    {
+      "unit": "message",
+      "cost": 0.012
+    },
+    {
+      "unit": "token_1k",
+      "cost": 0.006
+    }
+  ],
+  "plans": [
+    {
+      "name": "Starter",
+      "model": "freemium",
+      "price": 0,
+      "accounts": 8000,
+      "included": {
+        "message": 25,
+        "token_1k": 30
+      },
+      "averageUsage": {
+        "message": 19,
+        "token_1k": 21
+      }
+    },
+    {
+      "name": "Team",
+      "model": "hybrid",
+      "price": 29,
+      "accounts": 2200,
+      "included": {
+        "message": 900,
+        "token_1k": 1200
+      },
+      "overage": {
+        "message": 0.05,
+        "token_1k": 0.02
+      },
+      "averageUsage": {
+        "message": 1040,
+        "token_1k": 1500
+      },
+      "usagePercentiles": {
+        "p50": {
+          "message": 700,
+          "token_1k": 900
+        },
+        "p90": {
+          "message": 1700,
+          "token_1k": 2600
+        },
+        "p99": {
+          "message": 3200,
+          "token_1k": 5200
+        }
+      }
+    }
+  ]
+}

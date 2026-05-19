@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Pricebench terminal demo</title>
+  <desc id="desc">Terminal output showing Pricebench finding pricing risk and concrete suggested changes.</desc>
+  <rect width="960" height="540" rx="18" fill="#101418"/>
+  <rect x="28" y="28" width="904" height="484" rx="12" fill="#0f1720" stroke="#263241"/>
+  <circle cx="58" cy="58" r="7" fill="#f87171"/>
+  <circle cx="82" cy="58" r="7" fill="#fbbf24"/>
+  <circle cx="106" cy="58" r="7" fill="#34d399"/>
+  <text x="48" y="106" fill="#d1d5db" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="18">$ pricebench suggest demo:agentic-research</text>
+  <text x="48" y="150" fill="#f9fafb" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="20">Pricebench suggest: Agentic research workspace</text>
+  <text x="48" y="188" fill="#fca5a5" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="18">Verdict: revise</text>
+  <text x="48" y="224" fill="#d1d5db" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="18">Summary: 6 suggested changes (5 high, 1 medium).</text>
+  <text x="48" y="278" fill="#93c5fd" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="18">Suggested changes</text>
+  <text x="48" y="318" fill="#f9fafb" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">- Raise Pro base price to at least $270.00</text>
+  <text x="48" y="354" fill="#f9fafb" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">- Charge at least $7.00 per research_run above 10 included units</text>
+  <text x="48" y="390" fill="#f9fafb" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">- Add a finite workload cap before using outcome pricing</text>
+  <text x="48" y="458" fill="#9ca3af" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="16">JSON in. Pricing risk out. Concrete knobs next.</text>
+</svg>

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Creative ad studio",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.6,
+    "freeMarketingBudgetPerAccount": 4,
+    "activationMoment": "First approved campaign variant",
+    "pricingOwner": "growth lead",
+    "billingReadiness": "metered-events-ready"
+  },
+  "unitCosts": [
+    { "unit": "variant", "cost": 0.22 },
+    { "unit": "image", "cost": 0.06 },
+    { "unit": "render", "cost": 0.48 }
+  ],
+  "plans": [
+    {
+      "name": "Free",
+      "model": "freemium",
+      "price": 0,
+      "accounts": 7000,
+      "included": { "variant": 12, "image": 24, "render": 1 },
+      "averageUsage": { "variant": 10, "image": 18, "render": 0.8 }
+    },
+    {
+      "name": "Growth",
+      "model": "credits",
+      "price": 149,
+      "accounts": 900,
+      "included": { "variant": 350, "image": 600, "render": 35 },
+      "overage": { "variant": 0.75, "image": 0.18, "render": 1.5 },
+      "averageUsage": { "variant": 420, "image": 720, "render": 44 },
+      "usagePercentiles": {
+        "p50": { "variant": 280, "image": 500, "render": 28 },
+        "p90": { "variant": 780, "image": 1300, "render": 90 },
+        "p99": { "variant": 1600, "image": 2800, "render": 210 }
+      },
+      "creditPolicy": {
+        "topups": true,
+        "expiryDays": 30,
+        "rollover": false,
+        "consumes": ["variant", "image", "render"]
+      }
+    }
+  ]
+}

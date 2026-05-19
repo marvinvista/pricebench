@@ -1,0 +1,18 @@
+Pricebench explain: Agentic research workspace
+Source: demo:agentic-research
+Verdict: revise
+Overall margin: -13.2% (target 70.0%)
+
+Pro (subscription)
+- Revenue/account: $49.00 base + $0.00 overage = $49.00
+- COGS/account: $0.00 fixed + $81.00 usage = $81.00
+- Gross profit/account: $49.00 - $81.00 = -$32.00
+- Gross margin: -$32.00 / $49.00 = -65.3%
+- Unit costs
+  - research_run: 30 * $2.10 = $63.00
+  - source_fetch: 600 * $0.03 = $18.00
+- Usage percentiles
+  - P50: revenue/account $49.00, COGS/account $49.80, margin -1.6%
+  - P90: revenue/account $49.00, COGS/account $130.80, margin -166.9%
+  - P99: revenue/account $49.00, COGS/account $265.50, margin -441.8%
+

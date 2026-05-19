@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Coding agent seats",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.68,
+    "freeMarketingBudgetPerAccount": 5,
+    "activationMoment": "First accepted pull request",
+    "pricingOwner": "founder",
+    "billingReadiness": "basic-subscription"
+  },
+  "unitCosts": [
+    {
+      "unit": "agent_hour",
+      "cost": 1.4
+    },
+    {
+      "unit": "repo_scan",
+      "cost": 0.35
+    }
+  ],
+  "plans": [
+    {
+      "name": "Developer",
+      "model": "subscription",
+      "price": 39,
+      "accounts": 750,
+      "included": {
+        "agent_hour": 12,
+        "repo_scan": 6
+      },
+      "averageUsage": {
+        "agent_hour": 24,
+        "repo_scan": 12
+      },
+      "usagePercentiles": {
+        "p50": {
+          "agent_hour": 14,
+          "repo_scan": 8
+        },
+        "p90": {
+          "agent_hour": 42,
+          "repo_scan": 18
+        },
+        "p99": {
+          "agent_hour": 80,
+          "repo_scan": 36
+        }
+      }
+    },
+    {
+      "name": "Team",
+      "model": "hybrid",
+      "price": 199,
+      "accounts": 120,
+      "included": {
+        "agent_hour": 80,
+        "repo_scan": 40
+      },
+      "overage": {
+        "agent_hour": 4.5
+      },
+      "averageUsage": {
+        "agent_hour": 95,
+        "repo_scan": 55
+      },
+      "usagePercentiles": {
+        "p50": {
+          "agent_hour": 70,
+          "repo_scan": 34
+        },
+        "p90": {
+          "agent_hour": 150,
+          "repo_scan": 75
+        },
+        "p99": {
+          "agent_hour": 260,
+          "repo_scan": 120
+        }
+      }
+    }
+  ]
+}

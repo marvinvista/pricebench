@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Data enrichment API",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.75,
+    "freeMarketingBudgetPerAccount": 1,
+    "activationMoment": "First enriched account list exported",
+    "pricingOwner": "growth engineering",
+    "billingReadiness": "metered-events-ready"
+  },
+  "unitCosts": [
+    {
+      "unit": "row_enriched",
+      "cost": 0.018
+    },
+    {
+      "unit": "web_lookup",
+      "cost": 0.004
+    }
+  ],
+  "plans": [
+    {
+      "name": "Build",
+      "model": "hybrid",
+      "price": 149,
+      "accounts": 450,
+      "included": {
+        "row_enriched": 3000,
+        "web_lookup": 6000
+      },
+      "overage": {
+        "row_enriched": 0.09,
+        "web_lookup": 0.02
+      },
+      "averageUsage": {
+        "row_enriched": 4200,
+        "web_lookup": 7200
+      },
+      "usagePercentiles": {
+        "p50": {
+          "row_enriched": 2800,
+          "web_lookup": 5200
+        },
+        "p90": {
+          "row_enriched": 7200,
+          "web_lookup": 12000
+        },
+        "p99": {
+          "row_enriched": 16000,
+          "web_lookup": 26000
+        }
+      }
+    },
+    {
+      "name": "Scale",
+      "model": "usage",
+      "price": 499,
+      "accounts": 90,
+      "included": {
+        "row_enriched": 15000,
+        "web_lookup": 30000
+      },
+      "overage": {
+        "row_enriched": 0.075,
+        "web_lookup": 0.015
+      },
+      "averageUsage": {
+        "row_enriched": 18000,
+        "web_lookup": 36000
+      },
+      "usagePercentiles": {
+        "p50": {
+          "row_enriched": 12000,
+          "web_lookup": 24000
+        },
+        "p90": {
+          "row_enriched": 31000,
+          "web_lookup": 62000
+        },
+        "p99": {
+          "row_enriched": 58000,
+          "web_lookup": 116000
+        }
+      }
+    }
+  ]
+}

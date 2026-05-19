@@ -1,0 +1,23 @@
+Pricebench: AI support desk
+Verdict: ship
+Overall revenue: $352800.00 / month
+Overall COGS: $96276.00 / month
+Overall gross margin: 72.7% (target 70.0%)
+
+Plans
+- Free (freemium): revenue/account $0.00, COGS/account $1.12, margin 0.0%, accounts 12000
+- Team (hybrid): revenue/account $194.00, COGS/account $55.96, margin 71.2%, accounts 900
+- Resolution (outcome): revenue/account $1188.00, COGS/account $216.48, margin 81.8%, accounts 150
+
+Next
+1. Treat free AI usage as marketing spend and make the upgrade moment happen after the first value moment.
+2. Keep outcome pricing only where the success event is auditable, finite, and easy for buyers to understand.
+
+Principle Lens
+- AI has real marginal cost
+- Hybrid pricing is the default candidate
+- Outcome pricing needs clean measurement
+- Free AI usage is a marketing investment
+- Monetization follows activation
+- Billing must be ready to iterate
+

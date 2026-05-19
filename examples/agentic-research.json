@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Agentic research workspace",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.7,
+    "freeMarketingBudgetPerAccount": 2,
+    "activationMoment": "First cited research brief accepted by a teammate",
+    "pricingOwner": "founder and finance",
+    "billingReadiness": "manual"
+  },
+  "unitCosts": [
+    {
+      "unit": "research_run",
+      "cost": 2.1,
+      "note": "Agentic research workflow with model, search, and retrieval spend"
+    },
+    {
+      "unit": "source_fetch",
+      "cost": 0.03,
+      "note": "External source fetch and processing cost"
+    }
+  ],
+  "plans": [
+    {
+      "name": "Pro",
+      "model": "subscription",
+      "price": 49,
+      "accounts": 900,
+      "included": {
+        "research_run": 10,
+        "source_fetch": 200
+      },
+      "averageUsage": {
+        "research_run": 30,
+        "source_fetch": 600
+      },
+      "usagePercentiles": {
+        "p50": {
+          "research_run": 18,
+          "source_fetch": 400
+        },
+        "p90": {
+          "research_run": 48,
+          "source_fetch": 1000
+        },
+        "p99": {
+          "research_run": 95,
+          "source_fetch": 2200
+        }
+      }
+    },
+    {
+      "name": "Team",
+      "model": "outcome",
+      "price": 0,
+      "accounts": 120,
+      "outcome": "accepted research brief",
+      "measurableOutcome": true,
+      "finiteWorkload": false,
+      "overage": {
+        "research_run": 4.5
+      },
+      "averageUsage": {
+        "research_run": 80,
+        "source_fetch": 1600
+      },
+      "usagePercentiles": {
+        "p50": {
+          "research_run": 60,
+          "source_fetch": 1200
+        },
+        "p90": {
+          "research_run": 140,
+          "source_fetch": 2800
+        },
+        "p99": {
+          "research_run": 260,
+          "source_fetch": 5200
+        }
+      }
+    }
+  ]
+}

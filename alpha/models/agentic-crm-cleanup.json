@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Agentic CRM cleanup",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.72,
+    "freeMarketingBudgetPerAccount": 2,
+    "activationMoment": "First accepted account cleanup",
+    "pricingOwner": "founder",
+    "billingReadiness": "basic-subscription"
+  },
+  "unitCosts": [
+    { "unit": "account_review", "cost": 0.18 },
+    { "unit": "web_lookup", "cost": 0.015 }
+  ],
+  "plans": [
+    {
+      "name": "Starter",
+      "model": "hybrid",
+      "price": 79,
+      "accounts": 450,
+      "included": { "account_review": 500, "web_lookup": 1500 },
+      "averageUsage": { "account_review": 700, "web_lookup": 2400 },
+      "usagePercentiles": {
+        "p50": { "account_review": 430, "web_lookup": 1400 },
+        "p90": { "account_review": 1100, "web_lookup": 3600 },
+        "p99": { "account_review": 2600, "web_lookup": 9000 }
+      }
+    },
+    {
+      "name": "Team",
+      "model": "hybrid",
+      "price": 299,
+      "accounts": 80,
+      "included": { "account_review": 3000, "web_lookup": 9000 },
+      "overage": { "account_review": 0.7 },
+      "averageUsage": { "account_review": 3600, "web_lookup": 12000 },
+      "usagePercentiles": {
+        "p50": { "account_review": 2400, "web_lookup": 7600 },
+        "p90": { "account_review": 5200, "web_lookup": 18000 },
+        "p99": { "account_review": 9500, "web_lookup": 34000 }
+      }
+    }
+  ]
+}

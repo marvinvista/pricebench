@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "0.2",
+  "name": "AI video creative agent",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.55,
+    "freeMarketingBudgetPerAccount": 3,
+    "activationMoment": "First usable campaign asset exported",
+    "pricingOwner": "growth and finance",
+    "billingReadiness": "basic-subscription"
+  },
+  "unitCosts": [
+    {
+      "unit": "render",
+      "cost": 0.42
+    },
+    {
+      "unit": "image",
+      "cost": 0.08
+    }
+  ],
+  "plans": [
+    {
+      "name": "Free",
+      "model": "freemium",
+      "price": 0,
+      "accounts": 4000,
+      "included": {
+        "render": 2,
+        "image": 20
+      },
+      "averageUsage": {
+        "render": 1.6,
+        "image": 12
+      },
+      "conversionRate": 0.025
+    },
+    {
+      "name": "Creator",
+      "model": "credits",
+      "price": 110,
+      "accounts": 1400,
+      "included": {
+        "render": 40,
+        "image": 400
+      },
+      "overage": {
+        "render": 1.2,
+        "image": 0.2
+      },
+      "averageUsage": {
+        "render": 55,
+        "image": 360
+      },
+      "usagePercentiles": {
+        "p50": {
+          "render": 42,
+          "image": 300
+        },
+        "p90": {
+          "render": 85,
+          "image": 650
+        },
+        "p99": {
+          "render": 140,
+          "image": 1100
+        }
+      },
+      "creditPolicy": {
+        "topups": true,
+        "expiryDays": 30,
+        "rollover": false,
+        "consumes": [
+          "render",
+          "image"
+        ]
+      }
+    }
+  ]
+}

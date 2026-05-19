@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Image generation API",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.62,
+    "freeMarketingBudgetPerAccount": 2,
+    "activationMoment": "First image used in a live asset",
+    "pricingOwner": "API business owner",
+    "billingReadiness": "metered-events-ready"
+  },
+  "unitCosts": [
+    {
+      "unit": "image",
+      "cost": 0.05
+    },
+    {
+      "unit": "upscale",
+      "cost": 0.12
+    }
+  ],
+  "plans": [
+    {
+      "name": "Indie",
+      "model": "credits",
+      "price": 24,
+      "accounts": 1800,
+      "included": {
+        "image": 300,
+        "upscale": 30
+      },
+      "overage": {
+        "image": 0.18,
+        "upscale": 0.35
+      },
+      "averageUsage": {
+        "image": 360,
+        "upscale": 34
+      },
+      "usagePercentiles": {
+        "p50": {
+          "image": 240,
+          "upscale": 20
+        },
+        "p90": {
+          "image": 720,
+          "upscale": 70
+        },
+        "p99": {
+          "image": 1600,
+          "upscale": 160
+        }
+      },
+      "creditPolicy": {
+        "topups": true,
+        "expiryDays": 60,
+        "rollover": true,
+        "consumes": [
+          "image",
+          "upscale"
+        ]
+      }
+    },
+    {
+      "name": "Studio",
+      "model": "credits",
+      "price": 249,
+      "accounts": 220,
+      "included": {
+        "image": 4000,
+        "upscale": 400
+      },
+      "overage": {
+        "image": 0.16,
+        "upscale": 0.32
+      },
+      "averageUsage": {
+        "image": 4400,
+        "upscale": 390
+      },
+      "usagePercentiles": {
+        "p50": {
+          "image": 3200,
+          "upscale": 280
+        },
+        "p90": {
+          "image": 7200,
+          "upscale": 680
+        },
+        "p99": {
+          "image": 14000,
+          "upscale": 1300
+        }
+      },
+      "creditPolicy": {
+        "topups": true,
+        "expiryDays": 60,
+        "rollover": true,
+        "consumes": [
+          "image",
+          "upscale"
+        ]
+      }
+    }
+  ]
+}

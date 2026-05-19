@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "0.2",
+  "name": "AI support desk",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.7,
+    "freeMarketingBudgetPerAccount": 1.5,
+    "activationMoment": "First correctly resolved support question",
+    "pricingOwner": "monetization council",
+    "billingReadiness": "metered-events-ready"
+  },
+  "unitCosts": [
+    {
+      "unit": "resolution",
+      "cost": 0.18,
+      "note": "Model and retrieval cost per AI-resolved support issue"
+    },
+    {
+      "unit": "seat",
+      "cost": 0.04,
+      "note": "Workspace overhead per active support seat"
+    }
+  ],
+  "plans": [
+    {
+      "name": "Free",
+      "model": "freemium",
+      "price": 0,
+      "accounts": 12000,
+      "included": {
+        "resolution": 10,
+        "seat": 1
+      },
+      "averageUsage": {
+        "resolution": 6,
+        "seat": 1
+      },
+      "conversionRate": 0.04,
+      "notes": "Teaches the category before asking for payment."
+    },
+    {
+      "name": "Team",
+      "model": "hybrid",
+      "price": 149,
+      "accounts": 900,
+      "included": {
+        "resolution": 250,
+        "seat": 5
+      },
+      "overage": {
+        "resolution": 0.75
+      },
+      "averageUsage": {
+        "resolution": 310,
+        "seat": 4
+      },
+      "usagePercentiles": {
+        "p50": {
+          "resolution": 240,
+          "seat": 4
+        },
+        "p90": {
+          "resolution": 390,
+          "seat": 5
+        },
+        "p99": {
+          "resolution": 520,
+          "seat": 5
+        }
+      }
+    },
+    {
+      "name": "Resolution",
+      "model": "outcome",
+      "price": 0,
+      "accounts": 150,
+      "outcome": "resolved support ticket",
+      "measurableOutcome": true,
+      "finiteWorkload": true,
+      "included": {
+        "seat": 12
+      },
+      "overage": {
+        "resolution": 0.99
+      },
+      "averageUsage": {
+        "resolution": 1200,
+        "seat": 12
+      },
+      "usagePercentiles": {
+        "p50": {
+          "resolution": 900,
+          "seat": 10
+        },
+        "p90": {
+          "resolution": 1500,
+          "seat": 12
+        },
+        "p99": {
+          "resolution": 1900,
+          "seat": 12
+        }
+      }
+    }
+  ]
+}

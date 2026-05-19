@@ -1,0 +1,65 @@
+{
+  "name": "@marvinvista/pricebench",
+  "version": "0.2.0",
+  "description": "CLI that catches AI pricing margin leaks before they reach customers.",
+  "type": "commonjs",
+  "main": "./src/core.js",
+  "exports": {
+    ".": "./src/core.js",
+    "./core": "./src/core.js",
+    "./fixtures": "./src/fixtures.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "pricebench": "./bin/pricebench.js"
+  },
+  "files": [
+    "alpha",
+    "assets",
+    "bin",
+    "src",
+    "scripts",
+    "examples",
+    "docs",
+    "schema",
+    "ALPHA.md",
+    "README.md",
+    "ROADMAP.md",
+    "SECURITY.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "AGENTS.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "demo": "node bin/pricebench.js demo ai-support",
+    "alpha:smoke": "node scripts/alpha-smoke.js",
+    "alpha:trial": "node scripts/run-alpha-trial.js",
+    "alpha:outside": "node scripts/outside-alpha-check.js",
+    "github:smoke": "node scripts/smoke-github-install.js",
+    "public:surface": "node scripts/verify-public-surface.js",
+    "check": "node --test && node bin/pricebench.js status --json && node bin/pricebench.js doctor --json && node scripts/verify-public-surface.js && node scripts/run-alpha-trial.js --json && node scripts/smoke-github-install.js && node scripts/outside-alpha-check.js",
+    "release:rc": "node --test && node bin/pricebench.js status --json && node bin/pricebench.js doctor --json && node scripts/verify-public-surface.js && node scripts/run-alpha-trial.js --json && node scripts/smoke-github-install.js && node scripts/outside-alpha-check.js"
+  },
+  "keywords": [
+    "pricing",
+    "ai",
+    "monetization",
+    "cli",
+    "growth"
+  ],
+  "author": "Marvin Vista",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marvinvista/pricebench.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marvinvista/pricebench/issues"
+  },
+  "homepage": "https://github.com/marvinvista/pricebench#readme",
+  "engines": {
+    "node": ">=20"
+  }
+}

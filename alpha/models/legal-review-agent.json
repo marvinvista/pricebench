@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Legal review agent",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.7,
+    "freeMarketingBudgetPerAccount": 0,
+    "activationMoment": "First approved contract issue list",
+    "pricingOwner": "product and finance",
+    "billingReadiness": "manual"
+  },
+  "unitCosts": [
+    { "unit": "document_review", "cost": 3.25 },
+    { "unit": "clause_extract", "cost": 0.08 }
+  ],
+  "plans": [
+    {
+      "name": "Pro",
+      "model": "subscription",
+      "price": 199,
+      "accounts": 220,
+      "included": { "document_review": 30, "clause_extract": 900 },
+      "averageUsage": { "document_review": 46, "clause_extract": 1500 },
+      "usagePercentiles": {
+        "p50": { "document_review": 32, "clause_extract": 980 },
+        "p90": { "document_review": 90, "clause_extract": 3200 },
+        "p99": { "document_review": 180, "clause_extract": 6800 }
+      }
+    },
+    {
+      "name": "Success Fee",
+      "model": "outcome",
+      "price": 0,
+      "accounts": 35,
+      "outcome": "approved contract review",
+      "measurableOutcome": true,
+      "finiteWorkload": false,
+      "overage": { "document_review": 19 },
+      "averageUsage": { "document_review": 65, "clause_extract": 2600 },
+      "usagePercentiles": {
+        "p50": { "document_review": 50, "clause_extract": 1900 },
+        "p90": { "document_review": 120, "clause_extract": 5200 },
+        "p99": { "document_review": 220, "clause_extract": 9800 }
+      }
+    }
+  ]
+}

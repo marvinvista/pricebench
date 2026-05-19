@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pricebench.local/schema/pricebench.schema.json",
+  "title": "Pricebench Pricing Model",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["plans"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "enum": ["0.2"],
+      "default": "0.2"
+    },
+    "name": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "period": {
+      "type": "string",
+      "default": "month"
+    },
+    "assumptions": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "targetGrossMargin": {
+          "type": "number",
+          "minimum": 0
+        },
+        "freeMarketingBudgetPerAccount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "activationMoment": {
+          "type": "string"
+        },
+        "pricingOwner": {
+          "type": "string"
+        },
+        "billingReadiness": {
+          "type": "string"
+        }
+      }
+    },
+    "unitCosts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["unit", "cost"],
+        "properties": {
+          "unit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cost": {
+            "type": "number",
+            "minimum": 0
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "plans": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string",
+            "enum": ["subscription", "hybrid", "credits", "outcome", "freemium", "usage"]
+          },
+          "price": {
+            "type": "number",
+            "minimum": 0
+          },
+          "accounts": {
+            "type": "number",
+            "minimum": 0
+          },
+          "users": {
+            "type": "number",
+            "minimum": 0
+          },
+          "customers": {
+            "type": "number",
+            "minimum": 0
+          },
+          "fixedCost": {
+            "type": "number",
+            "minimum": 0
+          },
+          "included": {
+            "$ref": "#/$defs/numberRecord"
+          },
+          "includedUnits": {
+            "$ref": "#/$defs/numberRecord"
+          },
+          "averageUsage": {
+            "$ref": "#/$defs/numberRecord"
+          },
+          "avgUsage": {
+            "$ref": "#/$defs/numberRecord"
+          },
+          "usagePercentiles": {
+            "$ref": "#/$defs/usagePercentiles"
+          },
+          "percentileUsage": {
+            "$ref": "#/$defs/usagePercentiles"
+          },
+          "usageScenarios": {
+            "$ref": "#/$defs/usagePercentiles"
+          },
+          "overage": {
+            "$ref": "#/$defs/numberRecord"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "measurableOutcome": {
+            "type": "boolean"
+          },
+          "finiteWorkload": {
+            "type": "boolean"
+          },
+          "creditPolicy": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "numberRecord": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "usagePercentiles": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/numberRecord"
+      },
+      "properties": {
+        "p50": {
+          "$ref": "#/$defs/numberRecord"
+        },
+        "p90": {
+          "$ref": "#/$defs/numberRecord"
+        },
+        "p99": {
+          "$ref": "#/$defs/numberRecord"
+        }
+      }
+    }
+  }
+}

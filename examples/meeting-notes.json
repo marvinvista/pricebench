@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Meeting notes assistant",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.65,
+    "freeMarketingBudgetPerAccount": 0.5,
+    "activationMoment": "First summarized meeting shared",
+    "pricingOwner": "product lead",
+    "billingReadiness": "draft"
+  },
+  "unitCosts": [
+    {
+      "unit": "meeting_hour",
+      "cost": 0.22
+    },
+    {
+      "unit": "transcript_minute",
+      "cost": 0.006
+    }
+  ],
+  "plans": [
+    {
+      "name": "Free",
+      "model": "freemium",
+      "price": 0,
+      "accounts": 30000,
+      "included": {
+        "meeting_hour": 3,
+        "transcript_minute": 180
+      },
+      "averageUsage": {
+        "meeting_hour": 2.8,
+        "transcript_minute": 168
+      }
+    },
+    {
+      "name": "Pro",
+      "model": "subscription",
+      "price": 15,
+      "accounts": 3500,
+      "averageUsage": {
+        "meeting_hour": 18,
+        "transcript_minute": 1080
+      },
+      "usagePercentiles": {
+        "p50": {
+          "meeting_hour": 10,
+          "transcript_minute": 600
+        },
+        "p90": {
+          "meeting_hour": 35,
+          "transcript_minute": 2100
+        },
+        "p99": {
+          "meeting_hour": 70,
+          "transcript_minute": 4200
+        }
+      }
+    }
+  ]
+}

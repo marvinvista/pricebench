@@ -1,0 +1,27 @@
+name: Release Candidate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test
+      - run: node bin/pricebench.js doctor --json
+      - run: node bin/pricebench.js quickstart /tmp/pricebench-quickstart.json --json
+      - run: node scripts/verify-public-surface.js
+      - run: node scripts/alpha-smoke.js
+      - run: node scripts/run-alpha-trial.js --json
+      - run: node scripts/smoke-github-install.js
+      - run: node scripts/outside-alpha-check.js
+      - run: mkdir -p dist
+      - run: git archive --format=tar.gz --prefix=pricebench/ --output=dist/pricebench-source.tar.gz HEAD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pricebench-github-source
+          path: dist/*.tar.gz

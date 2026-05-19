@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Support triage API",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.74,
+    "freeMarketingBudgetPerAccount": 0,
+    "activationMoment": "First routed ticket accepted",
+    "pricingOwner": "API business owner",
+    "billingReadiness": "metered-events-ready"
+  },
+  "unitCosts": [
+    { "unit": "ticket_triage", "cost": 0.035 },
+    { "unit": "article_lookup", "cost": 0.006 }
+  ],
+  "plans": [
+    {
+      "name": "Launch",
+      "model": "usage",
+      "price": 99,
+      "accounts": 300,
+      "included": { "ticket_triage": 2500, "article_lookup": 8000 },
+      "overage": { "ticket_triage": 0.16, "article_lookup": 0.025 },
+      "averageUsage": { "ticket_triage": 3100, "article_lookup": 9000 },
+      "usagePercentiles": {
+        "p50": { "ticket_triage": 2100, "article_lookup": 6100 },
+        "p90": { "ticket_triage": 6200, "article_lookup": 16000 },
+        "p99": { "ticket_triage": 14000, "article_lookup": 42000 }
+      }
+    },
+    {
+      "name": "Scale",
+      "model": "usage",
+      "price": 499,
+      "accounts": 60,
+      "included": { "ticket_triage": 18000, "article_lookup": 60000 },
+      "overage": { "ticket_triage": 0.13, "article_lookup": 0.02 },
+      "averageUsage": { "ticket_triage": 22000, "article_lookup": 74000 },
+      "usagePercentiles": {
+        "p50": { "ticket_triage": 15000, "article_lookup": 52000 },
+        "p90": { "ticket_triage": 39000, "article_lookup": 124000 },
+        "p99": { "ticket_triage": 85000, "article_lookup": 260000 }
+      }
+    }
+  ]
+}

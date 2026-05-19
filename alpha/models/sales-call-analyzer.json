@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "0.2",
+  "name": "Sales call analyzer",
+  "currency": "USD",
+  "period": "month",
+  "assumptions": {
+    "targetGrossMargin": 0.68,
+    "freeMarketingBudgetPerAccount": 1,
+    "activationMoment": "First scored call shared with a manager",
+    "pricingOwner": "self-serve lead",
+    "billingReadiness": "draft"
+  },
+  "unitCosts": [
+    { "unit": "call_hour", "cost": 0.34 },
+    { "unit": "scorecard", "cost": 0.11 }
+  ],
+  "plans": [
+    {
+      "name": "Free",
+      "model": "freemium",
+      "price": 0,
+      "accounts": 6000,
+      "included": { "call_hour": 2, "scorecard": 5 },
+      "averageUsage": { "call_hour": 2.6, "scorecard": 7 }
+    },
+    {
+      "name": "Team",
+      "model": "subscription",
+      "price": 69,
+      "accounts": 1200,
+      "averageUsage": { "call_hour": 80, "scorecard": 160 },
+      "usagePercentiles": {
+        "p50": { "call_hour": 45, "scorecard": 90 },
+        "p90": { "call_hour": 140, "scorecard": 280 },
+        "p99": { "call_hour": 260, "scorecard": 520 }
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+Pricebench compare
+Left: demo:ai-support (ship, margin 72.7%, warnings 0)
+Right: demo:creative-agent (watch, margin 55.8%, warnings 1)
+Winner: demo:ai-support
+
+Delta
+- Revenue: -$173600.00
+- COGS: -$17088.00
+- Gross profit: -$156512.00
+- Gross margin: -16.9%
+- Warnings: +1 total, +0 high
+
+Notes
+- Verdict changes from ship to watch.
+- Gross margin moves by -16.9%.
+- Revenue changes by -$173600.00.
+

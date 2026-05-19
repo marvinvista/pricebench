@@ -1,0 +1,32 @@
+Pricebench suggest: Agentic research workspace
+Source: demo:agentic-research
+Verdict: revise
+Target margin: 70.0%
+Summary: 12 suggested changes (9 high, 3 medium).
+
+Suggested changes
+- [high] Pro: Raise Pro base price to at least $270.00 or add $221.00 equivalent usage revenue to hit 70.0% margin.
+  Pro needs $270.00 revenue per account against $81.00 COGS.
+- [high] Pro: Charge at least $7.00 per research_run above 10 included units on Pro.
+  Average usage is 30 research_run, so included usage is already exceeded without revenue.
+- [high] Pro: Charge at least $0.10 per source_fetch above 200 included units on Pro.
+  Average usage is 600 source_fetch, so included usage is already exceeded without revenue.
+- [high] Pro: Reprice Pro for P90 usage: margin falls to -166.9% at that usage level.
+  P90 usage costs $130.80 per account against $49.00 revenue.
+- [high] Pro: Reprice Pro for P99 usage: margin falls to -441.8% at that usage level.
+  P99 usage costs $265.50 per account against $49.00 revenue.
+- [high] Team: Raise Team base price to at least $360.00 or add $360.00 equivalent usage revenue to hit 70.0% margin.
+  Team needs $720.00 revenue per account against $216.00 COGS.
+- [high] Team: Add a finite workload cap to Team before using outcome pricing.
+  Outcome-priced work needs a bounded success event so usage cannot run without limit.
+- [high] Team: Reprice Team for P90 usage: margin falls to 40.0% at that usage level.
+  P90 usage costs $378.00 per account against $630.00 revenue.
+- [high] Team: Reprice Team for P99 usage: margin falls to 40.0% at that usage level.
+  P99 usage costs $702.00 per account against $1170.00 revenue.
+- [medium] Pro: Reprice Pro for P50 usage: margin falls to -1.6% at that usage level.
+  P50 usage costs $49.80 per account against $49.00 revenue.
+- [medium] Team: Add a 1360 source_fetch included limit and a $0.10 overage to Team.
+  Team has source_fetch COGS but no usage boundary.
+- [medium] Team: Reprice Team for P50 usage: margin falls to 40.0% at that usage level.
+  P50 usage costs $162.00 per account against $270.00 revenue.
+

@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - 20
+          - 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: node --test
+      - run: node bin/pricebench.js demo ai-support --json
+      - run: node bin/pricebench.js compare demo:ai-support demo:creative-agent --json
+      - run: node bin/pricebench.js sensitivity demo:agentic-research --cost 0.8,1,1.2 --usage 1,1.5 --json
+      - run: node bin/pricebench.js suggest demo:agentic-research --json
+      - run: node bin/pricebench.js suggest demo:agentic-research --patch
+      - run: node bin/pricebench.js suggest demo:agentic-research --apply --output /tmp/agentic-research.fixed.json --json
+      - run: node bin/pricebench.js analyze /tmp/agentic-research.fixed.json --json
+      - run: node bin/pricebench.js quickstart /tmp/pricebench-quickstart.json --json
+      - run: node bin/pricebench.js explain demo:agentic-research --plan Pro --json
+      - run: node bin/pricebench.js doctor --json
+      - run: node scripts/verify-public-surface.js
+      - run: node scripts/alpha-smoke.js
+      - run: node scripts/run-alpha-trial.js --json
+      - run: node scripts/smoke-github-install.js
+      - run: node scripts/outside-alpha-check.js
